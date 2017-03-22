@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Password generator</title>
+    <meta name="description" content="Password generator">
+    <meta name="Juan Ferrer" content="SitePoint">
+
+	<!--Style loading-->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--Script loading-->
+    <script src="js/passgen.js"></script>
+</head>
+
+<body>
+
+    <h1>Website</h1>
+    <!--Controls-->
+	<div id="numbers">
+    <input type="checkbox" class='regular-checkbox' name="useNumbers" id="useNumCB" checked/>
+    <label>Use numbers: </label>
+    <span id="numNo">4</span>
+	<br>
+    <input type="range" id="numNoSlider" min="1" max="5" value="4" oninput="showText(this.value, 'numNo')" />
+	</div>
+
+	<div id="punctuation">
+    <input type="checkbox" class='regular-checkbox' name="usePunctuation" id="usePunctCB" />
+    <label>Use punctuation (!&^%$"*#+-=\/<>.,:;'~[]{}())</label>
+	</div>
+
+	<div id="must">
+    <input type="checkbox" class='regular-checkbox' name="mustContain" id="mustContainCB" />
+    <label>Must contain </label>
+    <input type="text" id="wordToUseTB" value=""/>
+	</div>
+
+	<div id="caps">
+    <input type="checkbox" class='regular-checkbox' name="toggleRandomCaps" id="toggleCapsCB" onclick="toggleRandomCaps()" />
+    <label id="randCapsText">Toggle random caps</label>
+	</div>
+
+	<div id="words">
+    <label>Number of words: </label>
+    <span id="wordsNo">1</span>
+		Separated by
+	<select id="separator">
+	<option value=''>None</option>
+	<option value='.'>.</option>
+	<option value='-'>-</option>
+	<option value='_'>_</option>
+	</select>
+	<br>
+    <input type="range" id="wordsNoSlider" min="1" max="3" value="1" oninput="showText(this.value, 'wordsNo')" />
+	</div>
+
+	<span id="genButton">
+    <button id="passGenButton" onclick="generatePassword()">Generate password</button>
+	</span>
+	
+	<br><br><br>
+	<div>	
+	<span id="password">
+    <label id="passwordLabel">Password</label>
+	</span>
+	</div>
+
+</body>
+</html>
